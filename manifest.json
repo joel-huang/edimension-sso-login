@@ -1,0 +1,35 @@
+{
+
+	"manifest_version": 2,
+	"name": "edimension-sso-login",
+	"description": "stop wasting my time",
+	"version": "1",
+	
+	"content_scripts": [
+		{
+			"matches": ["https://edimension.sutd.edu.sg/webapps/login/*"],
+			"js": ["edimLogin.js"]
+		},
+		{
+			"matches": ["https://saturn.sutd.edu.sg/*"],
+			"js": ["saturnLogin.js"]
+		}
+	],
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": true
+	},
+
+	"browser_action": {
+		"default_title": "Open"
+	},
+
+	"permissions": [
+		"https://edimension.sutd.edu.sg/*",
+		"https://saturn.sutd.edu.sg/*",
+		"tabs",
+		"activeTab"
+	]
+
+}
